@@ -2,27 +2,31 @@ let now = moment();
 let currentDay = $('#currentDay');
 let checkIt;
 let container = document.querySelector('.container');
+let saveIt = document.querySelectorAll('.savebtn');
 let el;
 let presentHour;
 let currentHour;
-
+let storeTime;
+let storeThingy;
+let timeDay;
+let toDo;
 
 setInterval(getHour, 1000);
 setInterval(checkHour, 1000);
 
-init ();
+init();
 
-function initi(){
+function init(){
 if (
     localStorage === undefined ||
     localStorage.length === 0 ) {
-    storeUser = localStorage.setItem("userName", JSON.stringify([]));
-    storeScore = localStorage.setItem("score", JSON.stringify([]));
-    storeUser = JSON.parse(localStorage.getItem("userName"));
-    storeScore = JSON.parse(localStorage.getItem("score"));
+    storeTime = localStorage.setItem("timeDay", JSON.stringify([]));
+    storeThingy = localStorage.setItem("toDo", JSON.stringify([]));
+    storeTime = JSON.parse(localStorage.getItem("timeDay"));
+    storeThingy = JSON.parse(localStorage.getItem("toDo"));
   } else {
-    storeUser = JSON.parse(localStorage.getItem("userName"));
-    storeScore = JSON.parse(localStorage.getItem("score"));
+    storeTime = JSON.parse(localStorage.getItem("timeDay"));
+    storeThingy = JSON.parse(localStorage.getItem("toDo"));
   }
 }
 
@@ -43,8 +47,7 @@ function checkHour(){
  for (let i=0; i < 9; i++ ){
  el = container.children[i].children[1];
  presentHour = el.getAttribute('data-hour');
- console.log(el);
- console.log(presentHour);
+ 
  if (presentHour == currentHour){
     if (presentHour.includes('present')){
 
@@ -66,9 +69,31 @@ function checkHour(){
      }
 
  }
- console.log(el);
- console.log(presentHour);
+
 }
     
 
 }
+saveIt.forEach(el => el.addEventListener("click", event => {
+  let textAr = event.target.sibling[1];
+  let datAr = event.target.sibling[0];
+  console.log(textAr);
+  console.log(datAr);
+//     timeDay = el.sibling[0].innerText;
+//     console.log(timeDay);
+//     toDo = el.sibling[1].value;
+//   console.log(toDo);
+
+    // if (userName === "") {
+    //     displayMessage("error", "userName cannot be blank");
+    // } else  {
+    //     displayMessage("success", "Registered successfully");
+    //     storeUser.push(userName);
+    //     storeScore.push(daScore);
+    //     //local storage is storing it to index 1 and 2 and not moving from there.
+    //     localStorage.setItem("userName", JSON.stringify(storeUser));
+    //     localStorage.setItem("score", JSON.stringify(storeScore));
+    //     showWinners();
+
+    // }
+}));
