@@ -6,9 +6,25 @@ let el;
 let presentHour;
 let currentHour;
 
+
 setInterval(getHour, 1000);
 setInterval(checkHour, 1000);
 
+init ();
+
+function initi(){
+if (
+    localStorage === undefined ||
+    localStorage.length === 0 ) {
+    storeUser = localStorage.setItem("userName", JSON.stringify([]));
+    storeScore = localStorage.setItem("score", JSON.stringify([]));
+    storeUser = JSON.parse(localStorage.getItem("userName"));
+    storeScore = JSON.parse(localStorage.getItem("score"));
+  } else {
+    storeUser = JSON.parse(localStorage.getItem("userName"));
+    storeScore = JSON.parse(localStorage.getItem("score"));
+  }
+}
 
 function getHour(){
     let rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -17,7 +33,7 @@ function getHour(){
 }
 function checkHour(){
    
-    currentHour = 12;
+    currentHour = moment().hour();
    
     /*This function will need to pull the current hour
     then it will need to evaluate which element with class hour matches
@@ -54,14 +70,5 @@ function checkHour(){
  console.log(presentHour);
 }
     
-//  let dataHour = document.querySelectorAll('.hour');
-//  let evalHour = dataHour.getAttribute('data-hour');
-//     let cNow = now.hour();
-//     console.log(evalHour);
-//     checkIt = dataHour.evalHour;
-//     console.log(checkIt);
-//     if(Cnow > 12){
-// //         Cnow-12;
-//     }
 
 }
