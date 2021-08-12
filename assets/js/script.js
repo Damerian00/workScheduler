@@ -86,7 +86,10 @@ document.querySelectorAll('.saveBtn').forEach(item => {
          console.log(datAr);
          console.log(datData);
 
-
+         storeTime.push(textData);
+         storeThingy.push(datData);
+         localStorage.setItem(datAr, JSON.stringify(storeTime));
+         localStorage.setItem("message", JSON.stringify(storeThingy));
 
 
       })
