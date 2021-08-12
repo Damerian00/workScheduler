@@ -78,12 +78,13 @@ document.querySelectorAll('.saveBtn').forEach(item => {
     item.addEventListener('click', event => { 
         console.log("you saved me");
          let textAr = event.target.previousElementSibling;
-         textData = textAr;
+         textData = textAr.value;
          let datAr = textAr.previousElementSibling;
-         datData = datAr;
+         datData = datAr.innerText;
          console.log(textAr);
-         console.log(datAr);
          console.log(textData);
+         console.log(datAr);
+         console.log(datData);
 
 
 
