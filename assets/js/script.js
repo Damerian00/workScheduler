@@ -2,7 +2,7 @@ let now = moment();
 let currentDay = $('#currentDay');
 let checkIt;
 let container = document.querySelector('.container');
-let saveIt = document.querySelectorAll('.savebtn');
+let saveIt = document.querySelectorAll('.saveBtn');
 let el;
 let presentHour;
 let currentHour;
@@ -10,7 +10,8 @@ let storeTime;
 let storeThingy;
 let timeDay;
 let toDo;
-
+let datData;
+let textData;
 setInterval(getHour, 1000);
 setInterval(checkHour, 1000);
 
@@ -55,45 +56,71 @@ function checkHour(){
         el.classList.remove('future');
         el.classList.add('present');
     }
+} else if (presentHour > currentHour || currentHour > 17){
+    if (presentHour.includes('future')){
+
+ } else{
+       el.classList.add('future'); 
+    } 
  } else if (presentHour < currentHour){
     if (presentHour.includes('past')){
 
     }else{
         el.classList.add('past');  
     }
- } else {
-     if (presentHour.includes('future')){
-
-  } else{
-        el.classList.add('future'); 
-     }
-
  }
 
 }
     
 
 }
-saveIt.forEach(el => el.addEventListener("click", event => {
-  let textAr = event.target.sibling[1];
-  let datAr = event.target.sibling[0];
-  console.log(textAr);
-  console.log(datAr);
-//     timeDay = el.sibling[0].innerText;
-//     console.log(timeDay);
-//     toDo = el.sibling[1].value;
-//   console.log(toDo);
+document.querySelectorAll('.saveBtn').forEach(item => {
+    item.addEventListener('click', event => { 
+        console.log("you saved me");
+         let textAr = event.target.previousElementSibling;
+         textData = textAr;
+         let datAr = textAr.previousElementSibling;
+         datData = datAr;
+         console.log(textAr);
+         console.log(datAr);
+         console.log(textData);
 
-    // if (userName === "") {
-    //     displayMessage("error", "userName cannot be blank");
-    // } else  {
-    //     displayMessage("success", "Registered successfully");
-    //     storeUser.push(userName);
-    //     storeScore.push(daScore);
-    //     //local storage is storing it to index 1 and 2 and not moving from there.
-    //     localStorage.setItem("userName", JSON.stringify(storeUser));
-    //     localStorage.setItem("score", JSON.stringify(storeScore));
-    //     showWinners();
 
-    // }
-}));
+
+
+      })
+})
+//      event.preventDefault(); 
+    
+//      console.log(event);
+//     let textAr = event.target.sibling[1];
+//      let datAr = event.target.sibling[0];
+//      console.log(textAr);
+//      console.log(datAr);
+
+// });
+
+
+// saveIt.forEach(el => el.addEventListener("click", event => {
+//   let textAr = event.target.sibling[1];
+//   let datAr = event.target.sibling[0];
+//   console.log(textAr);
+//   console.log(datAr);
+// //     timeDay = el.sibling[0].innerText;
+// //     console.log(timeDay);
+// //     toDo = el.sibling[1].value;
+// //   console.log(toDo);
+
+//     // if (userName === "") {
+//     //     displayMessage("error", "userName cannot be blank");
+//     // } else  {
+//     //     displayMessage("success", "Registered successfully");
+//     //     storeUser.push(userName);
+//     //     storeScore.push(daScore);
+//     //     //local storage is storing it to index 1 and 2 and not moving from there.
+//     //     localStorage.setItem("userName", JSON.stringify(storeUser));
+//     //     localStorage.setItem("score", JSON.stringify(storeScore));
+//     //     showWinners();
+
+//     // }
+// }));
