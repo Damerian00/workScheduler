@@ -30,15 +30,15 @@
 <br />
 
 
-  <h3 align="center">Trivia Game</h3>
+  <h3 align="center">Day Planner</h3>
 
   <p align="center">
-     The game is simple answer as many questions as you can before the time is up. Wrong answers cost you to lose 5 seconds and correct answers scores you a point. At the end you can save your score to try and beat it the next time or play against family and friends.
+     This is a simple day planner that utilizes localstorage to save notes for yourself.
     <br />
-    <a href="https://github.com/Damerian00/QuizBowl"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Damerian00/workScheduler"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://damerian00.github.io/QuizBowl/">View Demo</a>
+    <a href="https://damerian00.github.io/workScheduler/">View Demo</a>
     
 </p>
 
@@ -62,8 +62,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-  This project was to create a trivia game that utilizes flexbox and local storage. The game is simple answer as many questions as you can before the time is up. Wrong answers cost you to lose 5 seconds and correct answers scores you a point. At the end you can save your score in local storage to try and beat at a later date. Currently it displays the first 6 scores stored in local storage. There is also a button to clear out your local storage so you can make new saves.
-
+  This project uses moment.js to retireve the current time and event listeners to store input into local storage to load up once the page loads. It also has a Date with Current time indicator at the top of the page. It will show the current hour as long as it's before 6PM in red. Any time before it will show up in grey and any time in the future will show up in green in the text area.
 
 
 ![Project Preview](./assets/img/site_ss.png)
@@ -85,7 +84,7 @@
 
 Patrick - (https://github.com/Damerian00) - GitHub Name
 
-Project Link: [https://github.com/Damerian00/QuizBowl]
+Project Link: [https://github.com/Damerian00/workScheduler]
 
 
 
