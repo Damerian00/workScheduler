@@ -51,11 +51,12 @@ setInterval(checkHour, 1000);
 init();
 
 function init() {
+    console.log(storageArray);
     if (
         localStorage === undefined ||
         localStorage.length === 0) {
         storeNotes = JSON.parse(localStorage.getItem("toDo"));
-        storageArray = storeNotes;
+        
     } else {
         storeNotes = JSON.parse(localStorage.getItem("toDo"));
         storageArray = storeNotes;
@@ -117,6 +118,7 @@ document.querySelectorAll('.saveBtn').forEach(item => {
     item.addEventListener('click', event => {
         let textAr = event.target.previousElementSibling;
         toDo = textAr.value;
+        console.log(toDo);
         let datAr = textAr.previousElementSibling;
         timeDay = datAr.innerText;
         if (storageArray != null) {
@@ -132,7 +134,8 @@ document.querySelectorAll('.saveBtn').forEach(item => {
 
             }
             localStorage.setItem("toDo", JSON.stringify(storageArray));
-
+            storeNotes = storageArray;
+            console.log(localStorage);
         } else {
 
         }
