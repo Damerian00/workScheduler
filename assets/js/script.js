@@ -51,18 +51,11 @@ setInterval(checkHour, 1000);
 init();
 
 function init() {
-    if (
-        localStorage === undefined ||
-        localStorage.length === 0) {
-        storeNotes = JSON.parse(localStorage.getItem("toDo"));
+    if (localStorage.getItem("toDo") != null) {
+        storageArray= JSON.parse(localStorage.getItem("toDo"));
         
-    } else {
-        storeNotes = JSON.parse(localStorage.getItem("toDo"));
-        storageArray = storeNotes;
     }
-    if (storageArray === undefined || storageArray === null) {
-
-    } else {
+  
         for (i = 0; i < 9; i++) {
             let newstorageArray = JSON.parse(localStorage.getItem("storageArray"));
             let theMessage = storageArray[i].message;
@@ -70,7 +63,7 @@ function init() {
         }
     }
 
-}
+
 
 
 function getHour() {
